@@ -8,11 +8,8 @@ export function sort(arr) {
   if (arr.length < 2) return arr;
   //Находим середину массива
   const middle = Math.floor(arr.length / 2);
-  //Отделяем правую половину от левой в отдельные массивы
-  const l_arr = arr.slice(0, middle);
-  const r_arr = arr.slice(middle);
-  //Объединяем отсортированные куски для возврата
-  return mergeArrays(sort(l_arr), sort(r_arr));
+  //Объединяем отсортированные куски(половинки от оригинальной строки) для возврата
+  return mergeArrays(sort(arr.slice(0, middle)), arr.slice(middle));
 };
 
 function mergeArrays(l_arr, r_arr){
