@@ -10,7 +10,7 @@ export function sort(arr) {
   const middle = Math.floor(arr.length / 2);
   //Отделяем правую половину от левой в отдельные массивы
   const l_arr = arr.slice(0, middle);
-  const r_arr = arr.slice(middle, arr.length);
+  const r_arr = arr.slice(middle);
   //Объединяем отсортированные куски для возврата
   return mergeArrays(sort(l_arr), sort(r_arr));
 };
