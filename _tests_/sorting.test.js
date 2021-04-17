@@ -9,7 +9,7 @@ import { sort as mergeSort} from '../Algs/mergeSort.js';
 import { sort as selectionSort} from '../Algs/selectionSort.js';
 
 export function testSortingAlgs() {
-  const arr = [11,23,100,6,2,7,9,10,55,1,8,4,5,3];
+  const arr = [11,23,100,6,2,7,9,10,55,1,8,4,5,3 ,17,56];
   const arrSorted = _.sortBy(arr);
   
   expect(arraysEqual(bubbleSort(arr), arrSorted)).be.true;
