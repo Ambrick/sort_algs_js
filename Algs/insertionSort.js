@@ -9,7 +9,7 @@ export function sort(arr) {
     let j = i;
     //Пока эл. из несортированной части < эл. из сортированной части
     //Swap el's till el from unsorted part > than el from sorted part
-    while (arr[j] < arr[j - 1]) {
+    while (arr[j] < arr[j - 1] && j > 0) {
       [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
       j--;
     }
