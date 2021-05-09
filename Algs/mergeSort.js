@@ -16,16 +16,15 @@ export function sort(arr) {
   
   function mergeArrays(l_arr, r_arr) {
     const mergedArr = [];
-    //Check the lowest el in first indexes of left and right arrays,
-    //than push it to the new "mergedArray"
+    //Push the lowest el between the first indexes of left and right arrays to the "mergedArray"
+    //for the full lengths of left and right arrays
     while (l_arr.length && r_arr.length) {
       mergedArr.push(l_arr[0] > r_arr[0] ? r_arr.shift() : l_arr.shift());
     }
-    //Merge to sorted array remainings from left and right parts, there can be leftovers after previous step
+    //Add to sorted array remainings from left and right parts. There can be leftovers after previous step
     return mergedArr.concat(l_arr, r_arr);
   };
-  //Cut the half of the array and sort it, than sort the remaining part,
-  //than merge theese sorted parts
+  //Sort left and right parts of the array and than merge them
   return mergeArrays(sort(arr.splice(0, Math.floor(arr.length / 2))), sort(arr));
 };
 
