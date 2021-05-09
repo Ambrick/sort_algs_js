@@ -14,7 +14,7 @@ export function sort(arr) {
   for (let i = 1; i < arr.length; i++) {
     pivot > arr[i] ? left.push(arr[i]) : right.push(arr[i]);
   }
-  
+
   return sort(left).concat(pivot, sort(right));
 };
 
@@ -24,13 +24,10 @@ export function opt_qsort(arr) {
   //Instead of taking first el of an array as a pivot, we choose pivot by random
   //There are a lot of cases when arr is already sorted, so low Big O to n log n
   const indexOfPivot = Math.floor(_.random(arr.length - 1));
-  const pivot = arr[indexOfPivot], left = [], right = [];
-  //Move pivot to the arr[0]
-  arr.splice(indexOfPivot, 1);
-  arr.unshift(pivot);
+  const pivot = arr.splice(indexOfPivot, 1), left = [], right = [];
 
-  for (let i = 1; i < arr.length; i++)
-    pivot > arr[i] ? left.push(arr[i]) : right.push(arr[i]);
+  while (arr.length)
+    pivot > arr[0] ? left.push(arr.shift()) : right.push(arr.shift());
 
   return opt_qsort(left).concat(pivot, opt_qsort(right));
 };
