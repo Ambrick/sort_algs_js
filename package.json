@@ -10,9 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^4.3.4"
   }
