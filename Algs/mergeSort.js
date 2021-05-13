@@ -10,10 +10,9 @@
  * @returns {Array} Returns `Array`.
  */
 
-export function sort(arr) {
+function mergeSort(arr) {
   //If array is empty or has only 1 el, than return that array
   if (arr.length < 2) return arr;
-  
   function mergeArrays(l_arr, r_arr) {
     const mergedArr = [];
     //Push the lowest el between the first indexes of left and right arrays to the "mergedArray"
@@ -25,6 +24,7 @@ export function sort(arr) {
     return mergedArr.concat(l_arr, r_arr);
   };
   //Sort left and right parts of the array and than merge them
-  return mergeArrays(sort(arr.splice(0, Math.floor(arr.length / 2))), sort(arr));
+  return mergeArrays(mergeSort(arr.splice(0, ~~(arr.length / 2))), mergeSort(arr));
 };
 
+export default mergeSort
