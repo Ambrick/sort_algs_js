@@ -1,11 +1,16 @@
-import _ from 'lodash';
+/**
+ * The implementation of `Quick sort`.
+ *
+ *-Best-case performance:   O(n log n)
+ *-Average performance:	    O(n log n)
+ *-Worst-case performance:  O(n2)
+ *
+ * @private
+ * @param {arr} object The Array to sort.
+ * @returns {Array} Returns `Array`.
+ */
 
-/*Quick sort
--Best-case performance:   O(n log n)
--Average performance:	    O(n log n)
--Worst-case performance:  O(n2)
-*/
-export function sort(arr) {
+function quickSort(arr) {
   //If array is empty or has only 1 el, than return that array
   if (arr.length < 2) return arr;
 
@@ -15,19 +20,7 @@ export function sort(arr) {
     pivot > arr[i] ? left.push(arr[i]) : right.push(arr[i]);
   }
 
-  return sort(left).concat(pivot, sort(right));
+  return quickSort(left).concat(pivot, quickSort(right));
 };
 
-//Optimised quick sort
-export function opt_qsort(arr) {
-  if (arr.length < 2) return arr;
-  //Instead of taking first el of an array as a pivot, we choose pivot by random
-  //There are a lot of cases when arr is already sorted, so low Big O to n log n
-  const indexOfPivot = Math.floor(_.random(arr.length - 1));
-  const pivot = arr.splice(indexOfPivot, 1), left = [], right = [];
-
-  while (arr.length)
-    pivot > arr[0] ? left.push(arr.shift()) : right.push(arr.shift());
-
-  return opt_qsort(left).concat(pivot, opt_qsort(right));
-};
+export default quickSort
