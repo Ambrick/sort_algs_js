@@ -1,11 +1,18 @@
-/*Insertion sort
--Worst-case performance:	О(n2) comparisons and swaps
--Best-case performance:	  O(n)  comparisons, O(1) swaps
--Average performance:   	О(n2) comparisons and swaps
-*/
-export function sort(arr) {
+/**
+ * The implementation of `Insertion sort`.
+ *
+ *-Best-case performance:   O(n)  comparisons, O(1) swaps
+ *-Average performance:	    О(n2) comparisons and swaps
+ *-Worst-case performance:  О(n2) comparisons and swaps
+ *
+ * @private
+ * @param {arr} object The Array to sort.
+ * @returns {Array} Returns `Array`.
+ */
+
+function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
-    //j - boundary index between sorted and unsorted parts
+    //j = i is a boundary index between sorted and unsorted parts
     let j = i;
     //Пока эл. из несортированной части < эл. из сортированной части
     //Swap el's till el from unsorted part > than el from sorted part
@@ -16,3 +23,5 @@ export function sort(arr) {
   }
   return arr;
 };
+
+export default insertionSort
