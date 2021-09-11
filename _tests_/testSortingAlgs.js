@@ -10,8 +10,7 @@ import selectionSort from '../Algs/selectionSort.js';
 
 export function testSortingAlgs() {
   const arr = [11, 23, 100, 6, 2, 7, 9, 10, 55, 1, 8, 4, 5, 3, 17, 56];
-  const arrSorted = arr;
-  arrSorted.sort((a, b ) => a - b);
+  const arrSorted = [...arr].sort((a, b ) => a - b);
 
   expect(bubbleSort(arr.slice()))         .to.eql(arrSorted, 'Array, sorted by bubbleSort != sortArray');
   expect(optimizedBubbleSort(arr.slice())).to.eql(arrSorted, 'Array, sorted by optBubbleSort != sortArray');
